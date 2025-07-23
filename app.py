@@ -77,6 +77,10 @@ def delete_price():
         except Exception as e:
             result = {"error": str(e)}
     return render_template('delete_price.html', result=result)
+@app.route('/api/slow-endpoint')
+def slow_endpoint():
+    time.sleep(5)
+    return "This was a slow response after 5 seconds"
 
 @app.route('/logout')
 def logout():
